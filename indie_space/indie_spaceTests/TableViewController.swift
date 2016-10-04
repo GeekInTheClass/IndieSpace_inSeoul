@@ -11,13 +11,16 @@ import UIKit
 class TableViewController: UITableViewController {
 
     
-    var meetingRooms : [String : String] = ["아트스페이스 풀" : "종로구", "SPACE VAC.": "영등포구"]
+    var meetingRooms : [[String]]? = [["아트스페이스 풀", "종로구", "서울시 종로구 세검정로 9길 91-5"], ["SPACE VAC.", "영등포구", "서울 영등포구 문래 2가 44-14 지하 1층"]]
    
     
+    @IBOutlet weak var navBarTitle: UINavigationItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navBarTitle.title = "인디공간"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,7 +46,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return meetingRooms.count
+        return meetingRooms!.count
     }
 
 
@@ -52,8 +55,9 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
 
-        cell.textLabel!.text = [String](meetingRooms.keys)[indexPath.row]
-       cell.detailTextLabel!.text = [String](meetingRooms.values)[indexPath.row]
+        cell.textLabel!.text = meetingRooms![indexPath.row][0]
+        //let detail = [[String]](meetingRooms.values)[indexPath.row]
+        cell.detailTextLabel!.text = meetingRooms![indexPath.row][1]
         return cell
     }
  
@@ -93,14 +97,30 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowDetail" {
+            guard let destination = segue.destination as? ViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row, let address = meetingRooms?[selectedIndex] else {return
+        }
+            destination.address = address
+        
+        
     }
-    */
+    
+        
+        
+        
+        
+        
+        
+        
+    }
+    
 
 }

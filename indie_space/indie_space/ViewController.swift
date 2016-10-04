@@ -12,15 +12,34 @@
  
  
  */
-/*
 
 import UIKit
 
 class ViewController: UIViewController {
 
+    var address: [String] = []
+    
+    @IBOutlet weak var district: UILabel!
+    
+    
+    @IBOutlet weak var location: UILabel!
+    
+    @IBOutlet weak var navTitle: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        navTitle.title = address[0]
+        
+        district.text = address[1]
+        location.text = address[2]
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +50,7 @@ class ViewController: UIViewController {
 
 }
 
-
+/*
 class Space {
 
     var nameOfSpace : String
