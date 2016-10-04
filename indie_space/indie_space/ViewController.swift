@@ -12,7 +12,7 @@
  
  
  */
-
+/*
 
 import UIKit
 
@@ -40,11 +40,11 @@ class Space {
     var callToSpace : String
     var openTime : [String:String]
     var featureNdescription : String
-    var eventNow : [String:String]
+    var eventNow : [String:String]?
     var siteURL : String
     
     func description() -> String {
-        return "\(nameOfSpace) (은)는  \(typeOfSpace) 입니다. \n 특징 : \(featureNdescription). \n 주소 : \(whereIsSpace) \n 연락처 : \(callToSpace) \n 운영시간 : \(openTime) \n 웹사이트 : \(siteURL) \n 현재 이벤트 : \(eventNow) "
+        return "\(nameOfSpace) (은)는  \(typeOfSpace) 입니다. \n 특징 : \(featureNdescription). \n 주소 : \(whereIsSpace) \n 연락처 : \(callToSpace) \n 운영시간 : \(openTime) \n 웹사이트 : \(siteURL) "
     }
     
     
@@ -62,9 +62,18 @@ class Space {
         
     }
     
-
+    if let existEvent = eventNow {
+        println("현재 진행중인 이벤트가 있습니다. \n (eventNow)")
+        
+    } else{
+    println("현재 진행중인 이벤트는 없습니다.")
+    
+    }
 
 }
+
+
+
 
 var artspacepool = Space(nameOfSpace: "아트스페이스 풀", whereIsSpace: "서울시 종로구 세검정로 9길 91-5", typeOfSpace: "현대미술 관련 기획전, 작가 프로덕션, 워크샵, 세미나, 연구 랩, 교육, 국제교류 등의 프로그램이 유기적으로 작동하는 공간", callToSpace: "02-396-4805", openTime: ["화-일":"10:00 - 18:00"], featureNdescription: "1999년 2월 “대안공간 풀”이라는 이름으로 문을 연 아트 스페이스 풀은 미술인들의 발의로 설립된 공동 운영 단체입니다. \n 아트스페이스 풀에서 하는 전시나 행사도 다양하고 좋은 것이 많습니다. 현대미술에 관심이있다면 방문 및 페이스북 팔로우를 추천! \n 아트스페이스 풀이 위치한 구기동이 서울중심가에서 좀 멀긴하며, 공간 주변이 주택가라 역시 접근성은 좀 떨어집니다. 그래도 동네가 조용하고 주변 공기가 맑으며 공간에 가면 여러 가지 전시 공연 소식지를 무료로 받아갈 수 있습니다.", eventNow: ["권용주 개인전: 석부작(石附作)":"2016년 8월 29일(월) ~ 10월 2일(일) "], siteURL: "http://www.altpool.org/")
 
@@ -83,11 +92,14 @@ var spacevac = Space(nameOfSpace: "SPACE VAC.[베크]", whereIsSpace: "서울 �
  func createDummy() -> [Space] {
     var artSpacePool:[Space] = []
     let space1 = Space(nameOfSpace: "아트스페이스 풀")
+ let space2 = Space(nameofSpace: )
+ let space3 = Space(
     artSpacePool += [space1]
     
    // let
-    return artSpacePool
+    return artspacepool
+ return spacevac
 }
 */
 
-
+*/
